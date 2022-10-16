@@ -1,47 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
-using Quaternion = System.Numerics.Quaternion;
-using Vector3 = System.Numerics.Vector3;
 
 public class Persona : MonoBehaviour
 {
-    public GameObject persona;
-    Vector3 position;
-    Quaternion rotation;
+    public Transform trans;
+    public GameObject prefab;
 
-    public CondicionEstadoFisico EstadoFisicoPersona { get; set; }
-    public bool EnfermedadRespiratoriaBase { get; set; }
-    public int RangoEdad { get; set; }
-    public bool Sedentario { get; set; }
-    public CondicionSocial EstadoSocial { get; set; }
-    public string LugarTrabajoExpoCovid { get; set; }
-
-    public void GenerarInstanciaPersonas()
+    // Start is called before the first frame update
+    void Start()
     {
-        Instantiate(persona);
+        //Instantiate(gameObject, transform.position, transform.rotation);
+        //Instantiate(prefab, new Vector3(i * 2.0f, 0, 0), Quaternion.identity);
+       
     }
 
-    
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Application.Quit();
+            //Debug.Log("Escape pressed!");
+            Instantiate(prefab, transform.position, Quaternion.identity);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Application.Quit();
+            //Debug.Log("Escape pressed!");
+            Destroy(prefab);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.Quit();
+        }
+
+    }
+
+
+
 
 }
-
-public enum CondicionEstadoFisico
-{
-    bueno,
-    regular,
-    malo
-}
-
-public enum CondicionSocial
-{
-    Alta,
-    Media,
-    Baja,
-    Pobreza
-}
-
-
-
-
