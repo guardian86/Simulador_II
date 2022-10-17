@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5083a9775f17dc64292ef4228fd5890d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06999999
+      value: -0.117
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5083a9775f17dc64292ef4228fd5890d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5083a9775f17dc64292ef4228fd5890d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.06
+      value: 3.589
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5083a9775f17dc64292ef4228fd5890d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -743,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef59ba6fda9ff3341939cef02006739e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objeto: {fileID: 19859676}
   particula: {fileID: 1424495307}
 --- !u!1 &1306988930
 GameObject:
@@ -866,8 +867,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424495304}
-  m_LocalRotation: {x: -0.010813512, y: -0.70702416, z: -0.70702416, w: 0.010813512}
-  m_LocalPosition: {x: -0.382833, y: 1.034131, z: 1.9833069}
+  m_LocalRotation: {x: -0.010813514, y: -0.70702416, z: -0.70702416, w: 0.010813514}
+  m_LocalPosition: {x: -0.436, y: 1.453, z: 0.227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -954,9 +955,9 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424495304}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 10
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -1019,7 +1020,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -1574,7 +1575,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -1833,7 +1834,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4525,7 +4526,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 0
     collisionMode: 0
@@ -4702,11 +4703,11 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0

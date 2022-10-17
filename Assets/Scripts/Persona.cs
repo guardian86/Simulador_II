@@ -31,7 +31,22 @@ public class Persona : MonoBehaviour, IParticula
         {
             //Application.Quit();
             //Debug.Log("Escape pressed!");
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            //realizar el random para generar la persona con covid o sin covid 
+            switch (Random.Range(0,3))
+            {
+                case 0:
+                    Instantiate(prefab, transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(prefab, transform.position, Quaternion.identity);
+                    break ;
+                    case 2:
+                    Instantiate(prefab, transform.position, Quaternion.identity);
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -72,8 +87,6 @@ public class Persona : MonoBehaviour, IParticula
         var em = ps.emission;
 
         em.enabled = true;
-
-        em.type = ParticleSystemEmissionType.Time;
 
         em.SetBursts(
             new ParticleSystem.Burst[]{
