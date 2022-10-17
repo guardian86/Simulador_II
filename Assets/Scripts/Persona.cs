@@ -1,18 +1,27 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Persona : MonoBehaviour
+public class Persona : MonoBehaviour, IParticula
 {
     public Transform trans;
     public GameObject prefab;
+    private float deletePersona = 3.0f;
+    private bool deleteClon = false;
+
+ 
 
     // Start is called before the first frame update
+    //[System.Obsolete]
     void Start()
     {
+        lanzarParticula();
+
         //Instantiate(gameObject, transform.position, transform.rotation);
         //Instantiate(prefab, new Vector3(i * 2.0f, 0, 0), Quaternion.identity);
-       
+
     }
 
     // Update is called once per frame
@@ -29,7 +38,15 @@ public class Persona : MonoBehaviour
         {
             //Application.Quit();
             //Debug.Log("Escape pressed!");
-            Destroy(prefab);
+            var clones = GameObject.FindGameObjectsWithTag("tagPerson");
+            if (clones.Any())
+            {
+                foreach (var clone in clones)
+                {
+                    Destroy(clone);
+                }
+            }
+         
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -39,7 +56,33 @@ public class Persona : MonoBehaviour
 
     }
 
+    public void lanzarParticula()
+    {
 
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+
+        if (this.GetComponent<ParticleSystem>() == null)
+            return;
+
+        this.GetComponent<ParticleSystem>().Stop();
+        this.GetComponent<ParticleSystem>().randomSeed = (uint)Random.Range(0, 9999999);
+        this.GetComponent<ParticleSystem>().Play();
+
+
+        var em = ps.emission;
+
+        em.enabled = true;
+
+        em.type = ParticleSystemEmissionType.Time;
+
+        em.SetBursts(
+            new ParticleSystem.Burst[]{
+                new ParticleSystem.Burst(2.0f, 100),
+                new ParticleSystem.Burst(4.0f, 100)
+            });
+
+
+    }
 
 
 }
